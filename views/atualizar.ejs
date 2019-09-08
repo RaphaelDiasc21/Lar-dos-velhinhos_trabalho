@@ -1,0 +1,65 @@
+<%- include('partials/nav.ejs') %>
+
+<div class="row">
+ <div class="col-12">
+    <label style="font-weight: 700;">Tipo de atualização:</label>
+    <select class="form-control col-6"id="selection">
+        <option value="inserir">Inserir produto</option>
+        <option value="quantidade">Atualizar quantidade</option>
+        <option value="excluir">Excluir produto</option>
+    </select>
+ </div>
+
+<div id="inserir" class="card active mt-5" style="width:100%; border:none;">
+    <h2 style="color:#3BA953;">Inserir produto em estoque</h2>
+        <form class="form-group" action="/atualizar-estoque-inserir" method="POST">
+            Nome:<select class="form-control col-3" name="nome">
+                    <option value="">---</option>
+                    <% products_produto.forEach((product)=>{%>
+                     <option value="<%= product.nome %>"><%= product.nome %></option> 
+                    <%})%>  
+                </select>
+            Quantidade:<input class="form-control col-3" type="text" name="quantidade">
+            
+            <button class="btn btn-primary mt-3" type="submit">Inscrever</button>
+        </form>
+</div>
+
+<div id="quantidade" class="card mt-5" style="width:100%; border:none;">
+    <h2 style="color:#3BA953;">Atualizar produto em estoque</h2>
+    
+        <form class="form-group" action="/atualizar-estoque-alterar-quantidade" method="POST">
+                <label>Nome:</label><br>
+                <select class="form-control col-3" name="nome" class="select_inserir">
+                        <option value="">---</option>
+                        <% products_estoque.forEach((product_estoque)=>{%>
+                            <option value="<%= product_estoque.NOME %>"><%= product_estoque.NOME %></option> 
+                        <%})%> 
+                </select>
+
+                <label>Quantidade:</label><br>
+                <input class="form-control col-3" id="quantidade_estoque"type="text" name="quantidade">
+
+            <button class="btn btn-primary mt-3" type="submit">Inscrever</button>
+        </form>
+    </div>
+
+<div id="excluir" class="card mt-5" style="width:100%; border:none;">
+        <h2 style="color:#3BA953;">Excluir produto em estoque</h2>
+            <form class="form-group" action="/excluir-produto-estoque" method="POST">
+                Nome:<select class="form-control col-3" name="nome">
+                        <option value="">---</option>
+                        <% products_estoque.forEach((product_estoque)=>{%>
+                            <option value="<%= product_estoque.NOME %>"><%= product_estoque.NOME %></option> 
+                        <%})%>  
+                    </select>
+                
+                <button class="btn btn-primary mt-3" type="submit">Inscrever</button>
+            </form>
+    </div>
+</div>
+    <%= message %>
+</div>
+<script src="js/atualiza_estoque.js"></script>
+<script src="js/quantidade_produto.js"></script>
+<%- include('partials/footer.ejs') %>

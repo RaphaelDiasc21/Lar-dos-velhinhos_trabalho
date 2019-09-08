@@ -1,0 +1,29 @@
+<%- include('partials/nav.ejs') %>
+<div class="row">
+  <h2 style="color:#3BA953;">Registrar produto no sistema</h2>
+    <form class="form-group col-12 mt-3" action="/produto" method="POST">
+      <label style="font-weight: 700">Nome:</label>
+      <input class="form-control" type="text" name="nome">
+      
+      <label style="font-weight: 700">Description:</label>
+      <input class="form-control" type="text" name="description">
+      
+      <button class="btn btn-primary mt-3" type="submit">Inscrever</button>
+  </form>
+  <table class="table table-striped">
+      <tr>
+          <th>Nome do produto</th>
+          <th>Descrição produto</th>
+      </tr>
+      <% products.forEach((product)=>{ %>
+          <tr>
+              <td><%= product.nome %></td>
+              <td><%= product.descricao %></td>
+          </tr>
+      <% }) %>
+  </table>
+</div>
+
+
+ 
+<%- include('partials/footer.ejs') %>

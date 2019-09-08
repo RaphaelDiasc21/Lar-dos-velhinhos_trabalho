@@ -1,0 +1,17 @@
+<%- include('partials/nav') %>
+<div class="row">
+    <form action="cadastro/cadastro-usuario" method="POST" class="form-group w-100">
+        <label style="font-weight: 700;">Nome:</label>
+        <input class="form-control col-6" type="text" name="nome">
+
+        <label style="font-weight: 700;">Email:</label>
+        <input class="form-control col-6" type="text" name="email">
+
+        <label style="font-weight: 700;">Senha:</label>
+        <input class="form-control col-6" type="text" name="senha">
+
+        <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+    </form>
+    <%= register_status %>
+</div>
+<%- include('partials/footer.ejs') %>

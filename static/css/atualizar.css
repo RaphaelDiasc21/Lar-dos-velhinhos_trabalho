@@ -1,0 +1,6 @@
+.active{
+    display:block!important;
+}
+#inserir, #quantidade, #excluir{
+    display:none;
+}

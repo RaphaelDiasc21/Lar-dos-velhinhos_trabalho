@@ -1,0 +1,10 @@
+<%- include('partials/nav.ejs') %>
+<div class="row">
+    <form action="login-user" method="POST">
+        Email:<input type="text" name="email">
+        Senha:<input type="text" name="senha">
+
+        <button type="submit" class="btn btn-primary">Conectar</button>
+    </form>
+</div>
+<%- include('partials/footer.ejs') %>

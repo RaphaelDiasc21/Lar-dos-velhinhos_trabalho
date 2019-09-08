@@ -1,0 +1,43 @@
+<%- include('partials/nav.ejs') %>
+<div class="row">
+<h2 style="color:#3BA953;">Pesquisar produto em estoque</h2>
+<div class="col-12">
+    <form class="form-group" action="/pesquisar-produto" method="POST">
+        <label style="font-weight: 700;">Produto a pesquisar:</label>
+        <select class="form-control col-sm-12 col-md-4" id="produto_pesquisar" name="nome">
+                <option value="">---</option>
+                <% estoque.forEach((estoque)=>{%>
+                    <option value="<%= estoque.NOME %>"><%= estoque.NOME %></option> 
+                <%})%>  
+            </select>
+
+        <div class="form-group">
+                <label style="font-weight: 700;">Nome do produto:</label>
+                <input class="form-control col-4" id="nome_produto" type="text" value="" readonly />
+
+                <label style="font-weight: 700;">Descrição do produto:</label>
+                <input class="form-control col-4" id="descricao_produto" type="text" value="" readonly />
+
+                <label style="font-weight: 700;">Quantidade em estoque:</label>
+                <input class="form-control col-4" id="quantidade_produto" type="text" value="" readonly />
+        </div>    
+    </form>
+</div>
+<h2 style="color:#3BA953;">Produtos em estoque</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Nome do produto</th>
+        <th>Descrição produto</th>
+        <th>Quantidade</th>
+    </tr>
+    <% estoque.forEach((estoque)=>{ %>
+        <tr>
+            <td><%= estoque.DESCRICAO %></td>
+            <td><%= estoque.NOME %></td>
+            <td><%= estoque.QUANTIDADE %></td>
+        </tr>
+    <% }) %>
+</table>
+</div>
+<script src="js/buscar_produto.js"></script>
+<%- include('partials/footer.ejs') %>
