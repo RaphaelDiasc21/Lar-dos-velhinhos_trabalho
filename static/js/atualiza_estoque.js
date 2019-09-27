@@ -7,6 +7,4 @@ selection_update.addEventListener("change",function(e){
         let active_before = document.querySelector(".active");
         active_before.classList = "card";
         document.getElementById(option).classList = "card active mt-5";
-
-        console.log(products_estoque);
     })

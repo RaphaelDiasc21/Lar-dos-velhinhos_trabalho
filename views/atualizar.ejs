@@ -21,7 +21,7 @@
                 </select>
             Quantidade:<input class="form-control col-3" type="text" name="quantidade">
             
-            <button class="btn btn-primary mt-3" type="submit">Inscrever</button>
+            <button class="btn btn-primary mt-3" type="submit">Inserir</button>
         </form>
 </div>
 
@@ -30,7 +30,7 @@
     
         <form class="form-group" action="/atualizar-estoque-alterar-quantidade" method="POST">
                 <label>Nome:</label><br>
-                <select class="form-control col-3" name="nome" class="select_inserir">
+                <select class="form-control select_inserir col-3" name="nome">
                         <option value="">---</option>
                         <% products_estoque.forEach((product_estoque)=>{%>
                             <option value="<%= product_estoque.NOME %>"><%= product_estoque.NOME %></option> 
@@ -40,7 +40,7 @@
                 <label>Quantidade:</label><br>
                 <input class="form-control col-3" id="quantidade_estoque"type="text" name="quantidade">
 
-            <button class="btn btn-primary mt-3" type="submit">Inscrever</button>
+            <button class="btn btn-primary mt-3" type="submit">Alterar</button>
         </form>
     </div>
 
@@ -54,12 +54,13 @@
                         <%})%>  
                     </select>
                 
-                <button class="btn btn-primary mt-3" type="submit">Inscrever</button>
+                <button class="btn btn-primary mt-3" type="submit">Excluir</button>
             </form>
     </div>
 </div>
     <%= message %>
 </div>
-<script src="js/atualiza_estoque.js"></script>
+
 <script src="js/quantidade_produto.js"></script>
+<script src="js/atualiza_estoque.js"></script>
 <%- include('partials/footer.ejs') %>
