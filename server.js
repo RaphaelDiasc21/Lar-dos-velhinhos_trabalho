@@ -46,6 +46,6 @@ app.use("/",estoque);
 app.use('/',cadastro);
 app.use('/',login)
 
-app.listen(3555,()=>{
+app.listen(process.env,PORT || 5000,()=>{
     console.log("Running");
 })
